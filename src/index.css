@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', system-ui, sans-serif; }
+body { transition: background-color 200ms ease, color 200ms ease; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0a0d1c; }
+::-webkit-scrollbar-thumb { background: #2140e2; border-radius: 8px; }
+
+.glass {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #8facfc, #3560f0 60%, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 37%, rgba(255,255,255,0.04) 63%);
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+}
+
+body.light-mode {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+body.light-mode .text-white { color: #0f172a !important; }
+body.light-mode [class~="text-white/80"] { color: rgb(15 23 42 / 0.8) !important; }
+body.light-mode [class~="text-white/70"] { color: rgb(15 23 42 / 0.7) !important; }
+body.light-mode [class~="text-white/60"] { color: rgb(15 23 42 / 0.6) !important; }
+body.light-mode [class~="text-white/50"] { color: rgb(15 23 42 / 0.5) !important; }
+body.light-mode [class~="text-white/40"] { color: rgb(15 23 42 / 0.4) !important; }
+body.light-mode [class~="border-white/10"] { border-color: rgb(15 23 42 / 0.12) !important; }
+body.light-mode [class~="bg-white/5"] { background-color: rgb(15 23 42 / 0.05) !important; }
+body.light-mode [class~="bg-white/10"] { background-color: rgb(15 23 42 / 0.1) !important; }
+body.light-mode .glass {
+  background: rgb(255 255 255 / 0.7);
+  border-color: rgb(15 23 42 / 0.12);
+}
+body.light-mode .bg-ink-950 { background-color: #f8fafc !important; }
+body.light-mode .bg-grid-glow {
+  background-image: radial-gradient(circle at 50% 0%, rgb(53 96 240 / 0.12), transparent 60%);
+}
+@keyframes skeleton-loading {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
